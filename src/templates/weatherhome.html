@@ -1,0 +1,54 @@
+<header ng-class="{'cloudyHeader': $ctrl.weatherDetails.item.condition.text.toLowerCase().indexOf('showers')>-1 ||
+                                $ctrl.weatherDetails.item.condition.text.toLowerCase().indexOf('cloudy')>-1}">
+    <h1>City weather</h1>
+    <p>By: Rahul Shukla</p>
+</header>
+<div class="main" ng-class="{'cloudyBody': $ctrl.weatherDetails.item.condition.text.toLowerCase().indexOf('showers')>-1 ||
+                                $ctrl.weatherDetails.item.condition.text.toLowerCase().indexOf('cloudy')>-1}">
+    <div class="container">
+        <div class="inputPanel">
+            <input type="text" ng-model="$ctrl.cityToSearch" placeholder="City name e.g. Bangalore">
+            <select ng-model="$ctrl.unit" ng-change="$ctrl.updateWeather()">
+                <option value="c">°C</option>
+                <option value="f">°F</option>
+            </select>
+            <input type="button" ng-click="$ctrl.updateWeather()" value="Update">
+            <div class="loader" ng-if="!$ctrl.weatherDetails && !$ctrl.showError"></div>
+            <div class="msg" ng-if="!$ctrl.weatherDetails && !$ctrl.showError">Loading ...</div>
+            <div class="msg" ng-if="$ctrl.showError">Sorry, could not find the city.</div>
+        </div>
+        <div class="weatherDetails animate-bottom" ng-if="$ctrl.weatherDetails">
+            <div class="cityTitle">{{$ctrl.formattedCity}}</div>
+            <div class="cityTemp">
+                {{$ctrl.weatherDetails.item.condition.temp}}°{{$ctrl.weatherDetails.units.temperature}}
+                <div class="cityCondition">{{$ctrl.weatherDetails.item.condition.text}}</div>
+            </div>
+            <ul class="conditionList">
+                <!--<li>Current Temperature : {{$ctrl.weatherDetails.item.condition.temp}}°{{$ctrl.weatherDetails.units.temperature}}</li>-->
+                <li>Sunrise : {{$ctrl.weatherDetails.astronomy.sunrise}}</li>
+                <li>Sunset : {{$ctrl.weatherDetails.astronomy.sunset}}</li>
+                <li>Humidity : {{$ctrl.weatherDetails.atmosphere.humidity}}%</li>
+                <li>Visibility : {{$ctrl.weatherDetails.atmosphere.visibility}}%</li>
+                <li>Wind:
+                    <ul class="ulWind">
+                        <li>Chill : {{$ctrl.weatherDetails.wind.chill}}°F</li>
+                        <li>Direction : {{$ctrl.weatherDetails.wind.direction}}°</li>
+                        <li>Speed : {{$ctrl.weatherDetails.wind.speed}} {{$ctrl.weatherDetails.units.speed}}</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="forecastTitle">Forecast for next 10 days</div>
+            <ul class="forecastList">
+                <li ng-repeat="forecast in $ctrl.weatherDetails.item.forecast">
+                    <div class="forecastDay">{{forecast.day}}</div>
+                    <div class="forecastDate">{{forecast.date}}</div>
+                    <div>High: {{forecast.high}}°{{$ctrl.weatherDetails.units.temperature}}</div>
+                    <div>Low: {{forecast.low}}°{{$ctrl.weatherDetails.units.temperature}}</div>
+                    <div class="forecastText">{{forecast.text}}</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,311 @@
+$sunnydayheader: #FFA500;
+$sunnydaybody: #FCFAD1;
+$cloudyheader: #708090;
+$cloudybody: #DCDCDC;
+$borderColor: grey;
+
+.cloudyHeader{
+  background-color: $cloudyheader;
+}
+
+.cloudyBody{
+  background-color: $cloudybody;
+}
+
+body{
+  color: #4C4C4C;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.7em;
+  background-color: $sunnydaybody;
+}
+
+header {
+  text-align: center;
+  background-color: $sunnydayheader;
+  height: 130px;
+  padding-top: 10px;
+}
+
+header {
+  h1{
+    font-size: 3em;
+    margin-bottom: 0;
+    font-style: italic;
+  }
+}
+
+.main {
+  padding: 1%;
+}
+
+.container {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.inputPanel {
+  text-align: center;
+  margin-bottom: 2em;
+  input[type=text]{
+    width: 200px;
+    line-height: 3rem;
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid $borderColor;
+  }
+  input[type=text]:focus {
+    outline: none;
+    border: 1px solid dodgerblue;
+  }
+  select {
+    height: 3.3rem;
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0px;
+    border: 1px solid $borderColor;
+  }
+  select:focus {
+    height: 3.3rem;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid dodgerblue;
+  }
+  input[type=button]{
+    width: 100px;
+    line-height: 2.9rem;
+    font-size: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: white;
+    border: 1px solid $sunnydayheader;
+  }
+  input[type=button]:active {
+    outline: none;
+    border: 1px solid dodgerblue;
+  }
+  input[type=button]:focus {
+    outline: none;
+  }
+}
+
+.cityTitle {
+  width: 80%;
+  font-size: 2.5em;
+  display: inline-block;
+}
+
+.cityTemp {
+  width: 20%;
+  float: right;
+  font-size: 2.5em;
+}
+
+.cityCondition {
+  font-size: 0.5em;
+}
+
+.conditionList {
+  margin-top: 20px;
+  margin-bottom:30px;
+  overflow:hidden;
+  border-top:1px solid #ccc;
+  padding-top: 20px;
+  padding-left: 0;
+}
+
+.conditionList li {
+  width:50%;
+}
+
+.forecastTitle {
+  font-size: 1.4em;
+}
+
+.forecastList {
+  padding-left: 0;
+  margin-bottom:20px;
+  overflow:hidden;
+}
+
+.forecastList li{
+  padding:5px;
+  float:left;
+  display:inline;
+  width:10%;
+  border-left:1px solid #ccc;
+  text-align: center;
+}
+
+.forecastList li:first-child{
+  border-left: none;
+}
+
+.forecastDay {
+  font-weight: bold;
+}
+
+.forecastDate {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.forecastText {
+  font-weight: bold;
+  font-size: 0.7em;
+  line-height: 1em;
+  margin-top: 10px;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.msg {
+  position: absolute;
+  left: 47%;
+  top: 60%;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 }
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
+  to{ bottom:0; opacity:1 }
+}
+
+@media (max-width:1199px) {
+  header {
+    height: 160px;
+    padding-top: 20px;
+  }
+
+  .inputPanel {
+    margin-top: 2em;
+    margin-bottom: 3em;
+  }
+
+
+  .cityTitle {
+    width: 75%;
+    font-size: 2.2em;
+  }
+
+  .cityTemp {
+    width: 25%;
+  }
+
+  .forecastTitle{
+    margin-top:45px;
+    margin-bottom:35px;
+  }
+
+  .forecastList li{
+    padding:2px;
+    margin-bottom: 40px;
+    width:20%;
+  }
+
+  .msg {
+    left: 43%;
+  }
+
+  .forecastList li:nth-child(6) {
+    border: none;
+  }
+}
+
+@media (max-width:766px) {
+  .container {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .inputPanel {
+    input[type=text]{
+      width: 165px;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+    select {
+      padding: 0.5em;
+    }
+    input[type=button]{
+      width: 88px;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+    }
+  }
+
+  .cityTitle {
+    width: 65%;
+    font-size: 2em;
+    line-height: 1em;
+  }
+
+  .cityTemp {
+    width: 35%;
+    font-size: 2em;
+  }
+
+  .conditionList li {
+    width:100%;
+  }
+
+  .forecastTitle{
+    margin-top:45px;
+    margin-bottom:35px;
+  }
+
+  .forecastList li{
+    padding:2px;
+    margin-bottom: 40px;
+    width:20%;
+  }
+
+  .forecastList li:nth-child(6) {
+    border: none;
+  }
+
+  .forecastText {
+    word-wrap: break-word;
+  }
+}

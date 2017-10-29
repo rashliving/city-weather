@@ -1,0 +1,37 @@
+{
+  "name": "rahul-weather-project",
+  "description": "Application for weather forecast",
+  "version": "0.1.0",
+  "main": [
+    "dist/rahul-weather-project.js",
+    "dist/rahul-weather-project.css"
+  ],
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Rahul Shukla",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "dependencies": {
+    "angular": "~1.5.11"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "src",
+    "demo",
+    ".travis.yml",
+    ".editorconfig",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.5.11"
+  }
+}
